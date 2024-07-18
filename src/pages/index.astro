@@ -1,0 +1,28 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const allPosts = await Astro.glob("./posts/*")
+
+const headColor = 'blue';
+---
+
+<MainLayout>
+  <div class="title">Home page</div>
+
+	{
+		allPosts.map(post => (
+			<div>
+				Title: {post.frontmatter.title}
+				<a href={post.url}>Read more</a>
+			</div>
+		))
+	}
+</MainLayout>
+
+<style define:vars={{headColor}}>
+	.title {
+		color: var(--headColor);
+		font-weight: 800;
+		font-size: 2rem;
+	}
+</style>

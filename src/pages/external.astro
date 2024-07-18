@@ -1,0 +1,17 @@
+---
+const response = await fetch(
+  "https://6698e10a2069c438cd7074a4.mockapi.io/blogs"
+);
+const posts = await response.json();
+---
+
+<div>
+  {
+    posts.map((post) => (
+      <div>
+        <img width="50px" src={post.imageUrl} alt="" />
+        <div>{post.name}</div>
+      </div>
+    ))
+  }
+</div>

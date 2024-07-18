@@ -1,0 +1,23 @@
+---
+import type { MarkdownLayoutProps } from 'astro';
+
+type Props = MarkdownLayoutProps<{
+  // Define frontmatter props here
+  title: string;
+  author: string;
+  date: string;
+}>;
+
+const { frontmatter } = Astro.props
+---
+
+<div>
+  Hello post: {frontmatter.title}
+  <slot />
+</div>
+
+<style is:global>
+  h1 {
+    color: blue
+  }
+</style>
